@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PriceScope - Sign Up</title>
+    <link rel="icon" type="image/x-icon" href="/logo.png">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <div style="display: flex; align-items: center;">
+                    <img src="/logo.png" alt="PriceScope Logo" style="height: 40px; margin-right: 10px;">
+                    <h1>PriceScope</h1>
+                </div>
+                <p>Find the best prices for your favorite mobile models</p>
+            </div>
+            <div class="header-right">
+                <a href="/auth/login" title="Login">
+                    <!-- Login Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+                        class="bi bi-person-badge" viewBox="0 0 16 16">
+                        <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path
+                            d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492z" />
+                    </svg>
+                </a>
+                <a href="/auth/signup" title="Sign Up" style="margin-left:10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+                        class="bi bi-person-plus" viewBox="0 0 16 16">
+                        <path d="M8 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        <path
+                            d="M8 8a5.978 5.978 0 0 0-4.546 2.01C2.13 11.215 2 11.864 2 12.5V14h4v-1a2 2 0 0 1 4 0v1h4v-1.5c0-.636-.13-1.285-1.454-2.49A5.978 5.978 0 0 0 8 8z" />
+                        <path fill-rule="evenodd"
+                            d="M13.5 5a.5.5 0 0 1 .5.5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 .5-.5z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="content-container">
+            <h2>Sign Up</h2>
+            <% if (error) { %>
+                <p style="color: red;">
+                    <%= error %>
+                </p>
+                <% } %>
+                    <form action="/auth/signup" method="POST">
+                        <div>
+                            <label for="username">Username:</label>
+                            <input type="text" name="username" id="username" required minlength="3">
+                        </div>
+                        <div>
+                            <label for="phoneNumber">Phone Number:</label>
+                            <input type="text" name="phoneNumber" id="phoneNumber" required>
+                        </div>
+                        <div>
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="password" required minlength="6">
+                        </div>
+                        <div>
+                            <label for="confirmPassword">Confirm Password:</label>
+                            <input type="password" name="confirmPassword" id="confirmPassword" required minlength="6">
+                        </div>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                    <p>Already have an account? <a href="/auth/login">Login here</a>.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <p style="color: white;">&copy; 2025 PriceScope. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script>
+        // Dropdown menu script (if needed)
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".dropdown-toggle");
+            const dropdown = document.querySelector(".dropdown");
+
+            if (menuToggle && dropdown) {
+                menuToggle.addEventListener("click", function (event) {
+                    event.stopPropagation();
+                    dropdown.classList.toggle("active");
+                });
+
+                document.addEventListener("click", function (event) {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.classList.remove("active");
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
